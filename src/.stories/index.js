@@ -41,6 +41,13 @@ storiesOf('Basic settings', module)
       maxDate={today} // Maximum selectable date
     />
   ))
+  .add('Enable Specific Dates', () => (
+    <InfiniteCalendar
+      enabledDates={[-10, -5, -6, 5, 6, 7, 2].map(amount =>
+        addDays(today, amount)
+      )}
+    />
+  ))
   .add('Disable Specific Dates', () => (
     <InfiniteCalendar
       disabledDates={[-10, -5, -6, 5, 6, 7, 2].map(amount =>

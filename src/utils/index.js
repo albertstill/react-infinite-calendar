@@ -133,6 +133,7 @@ export function emptyFn() {
 }
 
 export function sanitizeDate(date, {
+  enabledDates = [],
   disabledDates = [],
   disabledDays = [],
   minDate,
@@ -141,6 +142,7 @@ export function sanitizeDate(date, {
   // Selected date should not be disabled or outside the selectable range
   if (
     !date ||
+    enabledDates && !enabledDates.some(enabledDate => isSameDay(enabledDate, date)) ||
     disabledDates.some(disabledDate => isSameDay(disabledDate, date)) ||
     disabledDays && disabledDays.indexOf(getDay(date)) !== -1 ||
     minDate && isBefore(date, startOfDay(minDate)) ||

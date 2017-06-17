@@ -12,6 +12,7 @@ export default class Month extends PureComponent {
       DayComponent,
       disabledDates,
       disabledDays,
+      enabledDates,
       monthDate,
       locale,
       maxDate,
@@ -54,7 +55,8 @@ export default class Month extends PureComponent {
 					minDate && date < _minDate ||
 					maxDate && date > _maxDate ||
 					disabledDays && disabledDays.length && disabledDays.indexOf(dow) !== -1 ||
-					disabledDates && disabledDates.length && disabledDates.indexOf(date) !== -1
+					disabledDates && disabledDates.length && disabledDates.indexOf(date) !== -1 ||
+          enabledDates && enabledDates.length && enabledDates.indexOf(date) === -1
 				);
 
         days[k] = (
